@@ -10,6 +10,12 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set(sources
+    src/image/root_image.cpp
+    src/image/sample_image.cpp
+    src/object_finding/feature_detector.cpp
+    src/object_finding/feature_descriptor.cpp
+    src/object_finding/feature_comparator.cpp
+    src/object_finding/object_finder.cpp
     src/main.cpp)
 
 add_executable(${exe_name} ${sources})
