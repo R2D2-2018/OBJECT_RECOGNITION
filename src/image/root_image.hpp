@@ -3,20 +3,26 @@
 
 #include "image.hpp"
 
-namespace lucidy{
+/**
+ * @brief   Root Image wrapper class
+ * @file    root_image.hpp
+ */
+namespace lucidy
+{
 
-class RootImage: public Image{
+class RootImage : public Image
+{
 private:
-    const char* path;
-    settings::IMG::data & settings;
+  const char *path;
+  settings::IMG::data &settings;
+
 public:
-    RootImage(const char* path, settings::IMG::data & settings);
+  RootImage(const char *path, settings::IMG::data &settings);
 
-    void init() override;
-    cv::Mat get() override;
-
+  void init() override;
+  cv::Mat get() override;
 };
 
-}
+} // namespace lucidy
 
 #endif //ROOT_IMAGE_HPP

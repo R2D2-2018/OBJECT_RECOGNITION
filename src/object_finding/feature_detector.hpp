@@ -5,25 +5,31 @@
 #include "../external/settings.hpp"
 #include "../external/libraries/open_cv_types.hpp"
 
-namespace lucidy{
+/**
+ * @brief   Feature set detecting class
+ * @file    feature_detector.hpp
+ */
+namespace lucidy
+{
 
-class FeatureDetector{
-private:
+class FeatureDetector
+{
+  private:
     SurfDetector detector;
-    settings::FDT::data & settings;
+    settings::FDT::data &settings;
     FeatureList featureList;
 
     void initDetector();
-public:
-    FeatureDetector(settings::FDT::data & settings);
 
-    FeatureList& getFeatureList(Image & sourceImage);
-    SurfDetector& getDetector();
-    void changeSettings(const settings::FDT::data & new_data );
-    settings::FDT::data& getSettings();
+  public:
+    FeatureDetector(settings::FDT::data &settings);
 
+    FeatureList &getFeatureList(Image &sourceImage);
+    SurfDetector &getDetector();
+    void changeSettings(const settings::FDT::data &new_data);
+    settings::FDT::data &getSettings();
 };
 
-}
+} // namespace lucidy
 
 #endif //FEATURE_DETECTOR_HPP

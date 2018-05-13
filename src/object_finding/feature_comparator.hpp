@@ -5,11 +5,17 @@
 #include "../image/root_image.hpp"
 #include "../image/sample_image.hpp"
 
-namespace lucidy{
+/**
+ * @brief   Feature set comparing class
+ * @file    feature_comparator.hpp
+ */
+namespace lucidy
+{
 
-class FeatureComparator{
-private:
-    lucidy::settings::OBF::data & settings;
+class FeatureComparator
+{
+  private:
+    lucidy::settings::OBF::data &settings;
     cv::DescriptorMatcher matcher;
     MatchList matchList;
 
@@ -17,19 +23,16 @@ private:
     FeatureDescriptor descriptor;
 
     void initMatcher();
-public:
-    FeatureComparator(lucidy::settings::OBF::data & settings);
 
-    MatchList getMatchList(RootImage & sourceImage, SampleImage & sampleImage);
-    AffineMatrix calcAffineMatrix(RootImage & sourceImage, SampleImage & sampleImage);
-    Vector calcPos(FeatureList & data);
-    Vector calcOrientation(FeatureList & data);
+  public:
+    FeatureComparator(lucidy::settings::OBF::data &settings);
 
-
-
+    MatchList getMatchList(RootImage &sourceImage, SampleImage &sampleImage);
+    AffineMatrix calcAffineMatrix(RootImage &sourceImage, SampleImage &sampleImage);
+    Vector calcPos(FeatureList &data);
+    Vector calcOrientation(FeatureList &data);
 };
 
-}
+} // namespace lucidy
 
 #endif //FEATURE_COMPARATOR_HPP
-

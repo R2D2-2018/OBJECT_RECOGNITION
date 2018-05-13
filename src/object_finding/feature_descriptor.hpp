@@ -3,23 +3,29 @@
 
 #include "feature_detector.hpp"
 
-namespace lucidy{
+/**
+ * @brief   Descriptor list generating class
+ * @file    feature_descriptor.hpp
+ */
+namespace lucidy
+{
 
-class FeatureDescriptor{
-private:
-    FeatureDetector & detector;
-    settings::FDC::data & settings;
-    SurfDetector & descriptor;
+class FeatureDescriptor
+{
+  private:
+    FeatureDetector &detector;
+    settings::FDC::data &settings;
+    SurfDetector &descriptor;
     DescriptorList descriptorList;
 
     void initDescriptor();
-public:
-    FeatureDescriptor(FeatureDetector & detector, settings::FDC::data & settings);
 
-    DescriptorList& getDescriptorList(Image & sourceImage); 
+  public:
+    FeatureDescriptor(FeatureDetector &detector, settings::FDC::data &settings);
 
+    DescriptorList &getDescriptorList(Image &sourceImage);
 };
 
-}
+} // namespace lucidy
 
 #endif // FEATURE_DESCRIPTOR_HPP

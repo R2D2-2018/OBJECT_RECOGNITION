@@ -3,24 +3,29 @@
 
 #include "feature_comparator.hpp"
 
-namespace lucidy{
+/**
+ * @brief   Object descriptor finding class
+ * @file    object_finder.hpp
+ */
+namespace lucidy
+{
 
-class ObjectFinder{
-private:
+class ObjectFinder
+{
+  private:
     FeatureComparator comparator;
 
     void initFinder();
-public:
-    ObjectFinder(settings::OBF::data & settings);
 
-    bool isMatch(RootImage & sourceImage, SampleImage & sampleImage);
+  public:
+    ObjectFinder(settings::OBF::data &settings);
 
-    FoundImageData checkMatch(RootImage & sourceImage, SampleImage & sampleImage);
-    FoundImageList checkMatch(RootImage & sourceImage, SampleImageList & sampleImages);
+    bool isMatch(RootImage &sourceImage, SampleImage &sampleImage);
 
+    FoundImageData checkMatch(RootImage &sourceImage, SampleImage &sampleImage);
+    FoundImageList checkMatch(RootImage &sourceImage, SampleImageList &sampleImages);
 };
 
-}
+} // namespace lucidy
 
 #endif //OBJECT_FINDER_HPP
-
