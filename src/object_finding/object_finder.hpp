@@ -6,24 +6,25 @@
 /**
  * @brief   Object descriptor finding class
  * @file    object_finder.hpp
+ * @author  Dylan Rakiman, Arsalan Anwari
  */
 namespace lucidy
 {
 
 class ObjectFinder
 {
-  private:
-    FeatureComparator comparator;
+private:
+  FeatureComparator comparator;
 
-    void initFinder();
+  void initFinder();
 
-  public:
-    ObjectFinder(settings::OBF::data &settings);
+public:
+  ObjectFinder(settings::OBF::data &settings);
 
-    bool isMatch(RootImage &sourceImage, SampleImage &sampleImage);
+  bool isMatch(RootImage &sourceImage, SampleImage &sampleImage);
 
-    FoundImageData checkMatch(RootImage &sourceImage, SampleImage &sampleImage);
-    FoundImageList checkMatch(RootImage &sourceImage, SampleImageList &sampleImages);
+  FoundImageData checkMatch(RootImage &sourceImage, SampleImage &sampleImage);
+  FoundImageList checkMatch(RootImage &sourceImage, SampleImageList &sampleImages);
 };
 
 } // namespace lucidy

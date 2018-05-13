@@ -8,29 +8,30 @@
 /**
  * @brief   Feature set comparing class
  * @file    feature_comparator.hpp
+ * @author  Dylan Rakiman, Arsalan Anwari
  */
 namespace lucidy
 {
 
 class FeatureComparator
 {
-  private:
-    lucidy::settings::OBF::data &settings;
-    cv::DescriptorMatcher matcher;
-    MatchList matchList;
+private:
+  lucidy::settings::OBF::data &settings;
+  cv::DescriptorMatcher matcher;
+  MatchList matchList;
 
-    FeatureDetector detector;
-    FeatureDescriptor descriptor;
+  FeatureDetector detector;
+  FeatureDescriptor descriptor;
 
-    void initMatcher();
+  void initMatcher();
 
-  public:
-    FeatureComparator(lucidy::settings::OBF::data &settings);
+public:
+  FeatureComparator(lucidy::settings::OBF::data &settings);
 
-    MatchList getMatchList(RootImage &sourceImage, SampleImage &sampleImage);
-    AffineMatrix calcAffineMatrix(RootImage &sourceImage, SampleImage &sampleImage);
-    Vector calcPos(FeatureList &data);
-    Vector calcOrientation(FeatureList &data);
+  MatchList getMatchList(RootImage &sourceImage, SampleImage &sampleImage);
+  AffineMatrix calcAffineMatrix(RootImage &sourceImage, SampleImage &sampleImage);
+  Vector calcPos(FeatureList &data);
+  Vector calcOrientation(FeatureList &data);
 };
 
 } // namespace lucidy

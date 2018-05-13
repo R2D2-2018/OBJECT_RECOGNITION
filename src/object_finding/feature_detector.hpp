@@ -8,26 +8,27 @@
 /**
  * @brief   Feature set detecting class
  * @file    feature_detector.hpp
+ * @author  Dylan Rakiman, Arsalan Anwari
  */
 namespace lucidy
 {
 
 class FeatureDetector
 {
-  private:
-    SurfDetector detector;
-    settings::FDT::data &settings;
-    FeatureList featureList;
+private:
+  SurfDetector detector;
+  settings::FDT::data &settings;
+  FeatureList featureList;
 
-    void initDetector();
+  void initDetector();
 
-  public:
-    FeatureDetector(settings::FDT::data &settings);
+public:
+  FeatureDetector(settings::FDT::data &settings);
 
-    FeatureList &getFeatureList(Image &sourceImage);
-    SurfDetector &getDetector();
-    void changeSettings(const settings::FDT::data &new_data);
-    settings::FDT::data &getSettings();
+  FeatureList &getFeatureList(Image &sourceImage);
+  SurfDetector &getDetector();
+  void changeSettings(const settings::FDT::data &new_data);
+  settings::FDT::data &getSettings();
 };
 
 } // namespace lucidy

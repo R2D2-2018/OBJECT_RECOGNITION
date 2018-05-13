@@ -6,6 +6,7 @@
 /**
  * @brief   Root Image wrapper class
  * @file    root_image.hpp
+ * @author  Dylan Rakiman, Arsalan Anwari
  */
 namespace lucidy
 {
