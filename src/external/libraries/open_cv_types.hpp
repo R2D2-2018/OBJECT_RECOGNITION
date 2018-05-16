@@ -1,3 +1,12 @@
+/**
+ * @brief Adapter file that defines custom types from openCV
+ * @details This file includes and uses types and classes from the library openCV 
+ * and implements them with a custom name.
+ * @file open_cv_types.hpp
+ * @author Arsalan Anwari, Dylan Rakiman
+ * @date 2018-05-15
+ */
+
 #ifndef OPEN_CV_TYPES_HPP
 #define OPEN_CV_TYPES_HPP
 

@@ -8,7 +8,7 @@ namespace lucidy{
     {}
 
     void RootImage::init(){
-        // initialize with imread and settings params, Remove temporary code below
+        /// <initialize with imread and settings params, Remove temporary code below
         for (char & c: image.data){
             c = '1';
         }

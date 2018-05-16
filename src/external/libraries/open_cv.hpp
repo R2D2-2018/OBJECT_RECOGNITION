@@ -11,7 +11,7 @@ namespace cv{
     const int IMREAD_GRAYSCALE = 2;	
     const int IMREAD_COLOR = 3; 	
 
-    struct Mat{std::array<char, 100> data = {'0'};};
+    struct Mat{std::vector<char> data = {'0'};};
     typedef int flag;
     typedef float KeyPoint;
 
