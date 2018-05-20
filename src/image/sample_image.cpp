@@ -12,12 +12,10 @@ namespace lucidy{
     void SampleImage::init(){
         /// initialize with imread and settings params, check if image specifications are valid
         /// if not change image OR give error message. 
-         if (!isValid()){ return; } 
+         if (!isValid()){ return; }
+         set(path); 
         
-        /// Remove temporary code below
-        for (char & c: image.data){
-            c = '1';
-        }
+        
     }
 
     cv::Mat SampleImage::get(){
@@ -33,15 +31,32 @@ namespace lucidy{
     void SampleImage::set(SampleImage & other){
         /// copy funtion: clear img.data, setup again with new settings
         
-        /// if len(image) > 0: image.release();
+        if (image.data){ image = cv::Mat(); }
         image = other.image;
     }
 
-    void SampleImage::set(const char* new_path){
-        /// copy funtion: clear img.data, imread again with new image
-        
-        /// if len(image) > 0: image.release();
-        /// image = cv::imread(new_path);
+    void SampleImage::set(){
+        if (image.data){ image = cv::Mat(); }
+        cv::String path = getPath();
+        image = cv::imread(path, settings.flag);
+        while (!image.data){
+            std:: cout << "\r\n \t-FILENAME ERROR: Could not find image: " << path << "\r\n";
+            path = getPath();
+            image = cv::imread(path, settings.flag);
+        }
+    }
+
+    void SampleImage::set(const char * new_path){
+        if (image.data){ image = cv::Mat(); }
+        image = cv::imread(new_path, settings.flag);
+    }
+
+    cv::String SampleImage::getPath(){
+        std::string path;
+        std::cout << "\r\nPlease insert path of SampleImage: ";
+        std::cin >> path;
+        std:: cout << "\r\n \t-You inserted: " << path;
+        return cv::String(path);
     }
 
 }

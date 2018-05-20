@@ -28,10 +28,6 @@ namespace lucidy{
         
         /// remove sample code below
         AffineMatrix tmp;
-        for (char & c: tmp.data){
-            c = 'A';
-        } 
-        /// ============================
         return tmp;
     }
 

@@ -11,9 +11,10 @@
 #ifndef SETTINGS_HPP
 #define SETTINGS_HPP
 
-#include "libraries/open_cv.hpp"
+#include "types.hpp"
 
 namespace lucidy{
+
     namespace settings{
 
     namespace FDT{
@@ -42,8 +43,22 @@ namespace lucidy{
 
     namespace IMG{
         struct data{
-            cv::flag flag;
+            int flag = 1;
         };
+    }
+
+    namespace WIN{
+        namespace GUI{
+            struct data{
+                const char* name;
+                int flag;
+                WindowSize windowSize;
+                Coordinate windowPosition;
+            };
+        }
+
+       
+
     }
 
 

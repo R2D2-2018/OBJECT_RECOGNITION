@@ -23,7 +23,7 @@ class FeatureComparator
 {
 private:
   lucidy::settings::OBF::data &settings;
-  cv::DescriptorMatcher matcher;
+  cv::BFMatcher matcher;
   MatchList matchList;
 
   FeatureDetector detector;

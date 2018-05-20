@@ -9,9 +9,10 @@ namespace lucidy{
     void FeatureDetector::initDetector(){
         /// initialize detector with settings param
         /// detector = cv::xfeatures2d::SURF::create(); --> cannot me mimiced with typedef, but works in open_cv
-        detector->setMinHessian(settings.hessianThreshold);
+        detector = cv::xfeatures2d::SURF::create();
+        detector->setHessianThreshold(settings.hessianThreshold);
         detector->setNOctaves(settings.octavesNr);
-        detector->setNOctavesLayers(settings.octaveLayers);
+        detector->setNOctaveLayers(settings.octaveLayers);
     }
 
     FeatureList& FeatureDetector::getFeatureList(Image & sourceImage){

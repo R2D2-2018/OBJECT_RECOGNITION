@@ -6,7 +6,7 @@
  * By implementing this interface in another class you are able to change the Image functionality, without changing the base code. 
  * @file image.hpp
  * @author Arsalan Anwari
- * @date 2018-05-15
+ * @date 2018-05-19
  */
 
 #ifndef IMAGE_HPP
@@ -14,6 +14,8 @@
 
 #include "../external/libraries/open_cv.hpp"
 #include "../external/settings.hpp"
+#include <iostream>
+#include <string>
 
 namespace lucidy
 {
@@ -25,12 +27,26 @@ class Image
   protected:
     cv::Mat image;
 
+     virtual cv::String getPath() = 0;
+  
   public:
     /**
      * @brief This function should be used for the intialization process of the image container. 
      */
     virtual void init() = 0;
 
+    /**
+     * @brief This function should be used to fill the image container with an image specified from a path
+     * 
+     * @param new_path : char const*
+     */
+    virtual void set(const char* new_path) = 0;
+
+    /**
+     * @brief This function should be used as a way to ask the user to input a image path. 
+     * @details This image path can then be looked up and the image container can be filled with some image data
+     */
+    virtual void set() = 0;
     /**
      * @brief This function is used to return the usable data of the image 
      * @return cv::Mat 
@@ -39,21 +55,11 @@ class Image
 
     /**
      * @brief This function can be used to check wether a image matches the required specifications
-     * @details Specifications like size, color, sharpness, etc. By default it check if the image contains any unspecified values
+     * @details Specifications like size, color, sharpness, etc. 
      * @return true : image is valid 
      * @return false : image is invalid 
      */
-    virtual bool isValid()
-    {
-        for (const char &c : image.data)
-        {
-            if (c == ' ')
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+    virtual bool isValid(){ return true;}
 };
 
 } // namespace lucidy
