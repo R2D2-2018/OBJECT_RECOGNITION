@@ -21,6 +21,9 @@ set(sources
     src/object_finding/feature_descriptor.cpp
     src/object_finding/feature_comparator.cpp
     src/object_finding/object_finder.cpp
+    src/window/interface/gui.cpp
+    src/window/interface/cli.cpp
+    src/window/image_viewer.cpp
     src/main.cpp)
 
 add_executable(${exe_name} ${sources})

@@ -1,14 +1,9 @@
-/**
- * @brief 
- * Main entry point for module.
- * @file main.cpp
- * @author  Dylan Rakiman, Arsalan Anwari
- */
+#include "image/root_image.hpp"
+#include "window/image_viewer.hpp"
 
-#include <iostream>
-
-int main(void){
-
-
+int main( )
+  {
+    
     return 0;
-}
+  }
+
