@@ -60,9 +60,10 @@ public:
    * @brief This function is used to to fill the image container with an image specified from a path.
    * @param new_path : char* const
    * @warning The image container will be cleared on this function call
+   * @return Whether or not the set was successful
    */
   
-  void set(const char *new_path) override;
+  bool set(const char *new_path) override;
 
    /**
    * @brief Function used to copy the content of another sample image into the current one

@@ -10,7 +10,7 @@ add_library(OpenCV SHARED IMPORTED)
 set_property(TARGET OpenCV PROPERTY IMPORTED_LOCATION "/usr/local/lib")
 find_package( OpenCV REQUIRED )
 
-include_directories("/home/arsalan/ti-software/opencv/include/opencv2/")
+include_directories("/home/dylrak/Documents/R2D2/libraries/opencv/include/opencv2/")
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
@@ -25,6 +25,7 @@ set(sources
     src/window/interface/cli.cpp
     src/window/image_viewer.cpp
     src/main.cpp)
+set (unit_test_main test/test_main.cpp)
 
 add_executable(${exe_name} ${sources})
 target_link_libraries( object_recognition ${OpenCV_LIBS} )

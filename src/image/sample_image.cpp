@@ -46,9 +46,14 @@ namespace lucidy{
         }
     }
 
-    void SampleImage::set(const char * new_path){
-        if (image.data){ image = cv::Mat(); }
+    bool SampleImage::set(const char * new_path){
         image = cv::imread(new_path, settings.flag);
+        if(! image.data )   /// Check for invalid input
+        {
+            std::cerr << "Could not open or find the image." << std::endl;
+            return 0;
+        }
+        return 1;
     }
 
     cv::String SampleImage::getPath(){

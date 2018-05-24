@@ -28,9 +28,14 @@ namespace lucidy{
         }
     }
 
-    void RootImage::set(const char * new_path){
-        if (image.data){ image = cv::Mat(); }
+    bool RootImage::set(const char * new_path){
         image = cv::imread(new_path, 1);
+        if(! image.data ) /// Check for invalid input
+        {
+            std::cerr <<  "Could not open or find the image." << std::endl;
+            return 0;
+        }
+        return 1;
     }
 
     cv::Mat RootImage::get(){
