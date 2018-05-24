@@ -1,44 +1,12 @@
 #ifndef OPEN_CV_HPP
 #define OPEN_CV_HPP
 
-#include <array>
-#include <vector>
-#include <memory>
+#include "opencv2/core.hpp"
+#include "opencv2/features2d.hpp"
+#include "opencv2/xfeatures2d.hpp"
+#include "opencv2/highgui.hpp"
 
-
-namespace cv{
-    const int IMREAD_UNCHANGED = 1;	
-    const int IMREAD_GRAYSCALE = 2;	
-    const int IMREAD_COLOR = 3; 	
-
-    struct Mat{std::vector<char> data = {'0'};};
-    typedef int flag;
-    typedef float KeyPoint;
-
-    template <typename T>
-    using Ptr = std::shared_ptr<T>;
-
-    struct Match{float distance; int imgldx; int queryldx; int trainldx;};
-
-    class DescriptorMatcher{public: DescriptorMatcher(){}; void match(Mat a, Mat b, std::vector<Match> c){} };
-
-    namespace xfeatures2d{
-        class SURF{ public: void create(){}; 
-            void setMinHessian(double a){}; void setNOctaves(int a){}; void setNOctavesLayers(int a){}; 
-            void detect(Mat a, std::vector<KeyPoint> b){}; void compute(Mat a, std::vector<KeyPoint> b, Mat c){}; 
-            void setExtended(bool a){}; void setUpright(bool a){};
-        };
-
-
-    }
-
-
-
-
-
-
-
-}
+/// for OpenCV4Tegra see: https://elinux.org/Jetson/Installing_OpenCV
 
 #endif //OPEN_CV_HPP
 

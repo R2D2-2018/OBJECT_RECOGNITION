@@ -11,16 +11,17 @@
 #ifndef SETTINGS_HPP
 #define SETTINGS_HPP
 
-#include "libraries/open_cv.hpp"
+#include "types.hpp"
 
 namespace lucidy{
+
     namespace settings{
 
     namespace FDT{
         struct data{
             double hessianThreshold;
-            int octavesNr = 0;
-            int octaveLayers = 0;
+            int octavesNr = 4;
+            int octaveLayers = 3;
         };
 
     }
@@ -42,8 +43,33 @@ namespace lucidy{
 
     namespace IMG{
         struct data{
-            cv::flag flag;
+            int flag = 1;
         };
+    }
+
+    namespace WIN{
+        namespace GUI{
+            struct data{
+                const char* name;
+                int flag;
+                int refreshRate;
+                WindowSize windowSize;
+                Coordinate windowPosition;
+                char exitKey = 'q';
+            };
+
+            namespace VIW{
+                struct data{
+                    GUI::data guiSet;
+                    Cameras camNr;
+                };
+
+            }
+
+        }
+
+       
+
     }
 
 

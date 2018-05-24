@@ -24,6 +24,13 @@ private:
   const char *path;
   settings::IMG::data settings;
 
+  /**
+   * @brief This function is used as CLI interface that prompts the user to input a image path 
+   * @details Feed back is givin on the currently inputed value. This value will be converted to a cv::String
+   * @return cv::String 
+   */
+  cv::String requestPath();
+
 public:
   SampleImage();
   SampleImage(const char *path, settings::IMG::data &settings);
@@ -49,18 +56,36 @@ public:
   cv::Mat get() override;
 
   /**
+     * @brief This function is used as a way to ask the user to input a image path. 
+     * @details This image path can then be looked up and the image container can be filled with some image data.
+     * The user will get continously prompted to insert an image path untill the image path is correct.
+     * @warning The image container will be cleared on this function call
+  */
+  void set() override;
+ 
+  /**
+   * @brief This function is used to to fill the image container with an image specified from a path.
+   * @param new_path : char* const
+   * @warning The image container will be cleared on this function call
+   */
+  
+  void set(const char *new_path) override;
+
+  /**
+   * @brief This function is used to fill the image container with the parameter cotainer 
+   * 
+   * @param newImage: new image conainter 
+   */
+  void set(cv::Mat & newImage) override;
+
+   /**
    * @brief Function used to copy the content of another sample image into the current one
    * 
    * @param other 
    */
   void set(SampleImage &other);
 
-  /**
-   * @brief Function used to change the content of the image container by loading another image with a file path
-   * 
-   * @param new_path 
-   */
-  void set(const char *new_path);
+  
 };
 
 /// This is a custom made type that holds a list of SampleImage's. 

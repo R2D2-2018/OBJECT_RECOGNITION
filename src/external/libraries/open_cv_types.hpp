@@ -19,7 +19,7 @@ namespace lucidy{
     typedef cv::Ptr<cv::xfeatures2d::SURF> SurfDetector;
     typedef cv::Mat DescriptorList;
     typedef struct{int x; int y;} Vector;
-    typedef std::vector<cv::Match> MatchList;
+    typedef std::vector<cv::DMatch> MatchList;
     typedef cv::Mat AffineMatrix;
 
     struct FoundImageData{ SampleImage image; AffineMatrix matrix; bool match; };

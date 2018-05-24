@@ -4,6 +4,7 @@ namespace lucidy{
 
     FeatureComparator::FeatureComparator(lucidy::settings::OBF::data & settings):
         settings(settings),
+        matcher(cv::NORM_L2),
         detector(settings.fdt),
         descriptor(detector, settings.fdc)
     {initMatcher();}
@@ -18,7 +19,7 @@ namespace lucidy{
         /// calculated matches output is in matchList. return matchList. 
         DescriptorList source = descriptor.getDescriptorList(sourceImage);
         DescriptorList sample = descriptor.getDescriptorList(sampleImage);
-        matcher.match(source, sample, matchList);
+        matcher.match(sample, source, matchList);
         return matchList;
     }
     
@@ -28,10 +29,6 @@ namespace lucidy{
         
         /// remove sample code below
         AffineMatrix tmp;
-        for (char & c: tmp.data){
-            c = 'A';
-        } 
-        /// ============================
         return tmp;
     }
 
