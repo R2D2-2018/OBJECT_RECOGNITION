@@ -39,8 +39,9 @@ class Image
      * @brief This function should be used to fill the image container with an image specified from a path
      * 
      * @param new_path : char const*
+     * @return Whether or not the set was successful
      */
-    virtual void set(const char* new_path) = 0;
+    virtual bool set(const char* new_path) = 0;
 
     /**
      * @brief This function should be used as a way to ask the user to input a image path. 

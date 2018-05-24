@@ -7,5 +7,3 @@
 #include "opencv2/highgui.hpp"
 
 #endif //OPEN_CV_HPP
-
-
