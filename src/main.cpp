@@ -1,14 +1,28 @@
-/**
- * \file
- * \brief     INSERT A DESCRIPTION HERE
- * \author    INSERT YOUR NAME HERE
- * \copyright Copyright (c) 2017, The R2D2 Team
- * \license   See LICENSE
- */
-#include <iostream>
+#include "window/video_controller.hpp"
 
-int main(int argc, char **argv) {
-    std::cout << "Hello world!\n";
+int main( ){
+  
+  lucidy::settings::WIN::GUI::VIW::data tmp{
+    lucidy::settings::WIN::GUI::data{
+      "TestWindow",
+      cv::WINDOW_GUI_NORMAL,
+      30,
+      lucidy::WindowSize{600,600},
+      lucidy::Coordinate{1000,1000}
+    },
+    lucidy::Cameras::USB_CAMERA_1
+  };
 
-    return 0;
+  lucidy::VideoController vcr(tmp);
+
+  vcr.startRecording(lucidy::SHOW_VIDEO_FEED);
+
+  lucidy::RootImageList container = vcr.getRecordFeed();
+
+  int size = static_cast<int>( container.size() );
+  std::cout << "Container size: " << size;
+
+  return 0;
 }
+
+
