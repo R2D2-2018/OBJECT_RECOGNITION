@@ -31,7 +31,7 @@ private:
   FeatureComparator comparator;
 
   /**
-   * @brief This function is used to initialize the object finder with some optional settings
+   * @brief This function is used to initialise the object finder with some optional settings
    * 
    */
   void initFinder();
@@ -41,27 +41,30 @@ public:
 
   /**
    * @brief Function used to check wether two a sample image matches or come forth in a root image
-   * @param sourceImage 
-   * @param sampleImage 
-   * @return true : algorithm determines matchlist is valid
-   * @return false : algorithm determines matchlist is invalid
+   * 
+   * It returns a boolean specifying whether or not the algorithm determined the matchList to be valid.
+   * 
+   * @param sourceImage : RootImage&
+   * @param sampleImage : SampleImage&
+   * @return bool
    */
   bool isMatch(RootImage &sourceImage, SampleImage &sampleImage);
 
   /**
-   * @brief Function that returns a copy of the to be tested image with some additional data and if it matched
-   * @details The reason a copy should be made is so a list can be made of images with some meta data if they matched. This uses the function isMatch()
-   * @param sourceImage 
-   * @param sampleImage 
+   * @brief Function that returns a copy of the image to be tested, along with some additional data and whether or not it matched
+   * The reason a copy should be made is so a list can be made of images with some meta data if they matched. This uses the function isMatch()
+   * 
+   * @param sourceImage : RootImage&
+   * @param sampleImage : SampleImage&
    * @return FoundImageData 
    */
   FoundImageData checkMatch(RootImage &sourceImage, SampleImage &sampleImage);
 
   /**
-   * @brief Function that iterates through a list of sample images t determain which of them matched. 
+   * @brief Function that iterates through a list of sample images to determine any or all matches. 
    * 
-   * @param sourceImage 
-   * @param sampleImages 
+   * @param sourceImage : RootImage&
+   * @param sampleImage : SampleImage&
    * @return FoundImageList 
    */
   FoundImageList checkMatch(RootImage &sourceImage, SampleImageList &sampleImages);

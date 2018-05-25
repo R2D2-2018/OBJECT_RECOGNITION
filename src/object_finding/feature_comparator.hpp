@@ -23,7 +23,8 @@ namespace lucidy
 {
 /**
  * @brief feature comparator class
- * @details contains both a detector and descriptor
+ * 
+ * Contains both a detector and descriptor
  */
 class FeatureComparator
 {
@@ -36,8 +37,7 @@ private:
   FeatureDescriptor descriptor;
 
   /**
-   * @brief Function used to pass initilaize detector and descriptor with their settings
-   * 
+   * @brief Function used to initialise detector and descriptor with the specified settings.
    */
   void initMatcher();
 
@@ -47,17 +47,17 @@ public:
   /**
    * @brief Function that uses an algorithm to recognize matches between two descriptor lists. 
    * 
-   * @param sourceImage 
-   * @param sampleImage 
-   * @return MatchList 
+   * @param sourceImage  : RootImage&
+   * @param sampleImage : SampleImage&
+   * @return MatchList
    */
   MatchList getMatchList(RootImage &sourceImage, SampleImage &sampleImage);
 
   /**
-   * @brief Function used to calculate the sample image affine matrix that contains both position and orientation
+   * @brief Function used to calculate the sample image affine matrix that contains position and orientation
    * 
-   * @param sourceImage 
-   * @param sampleImage 
+   * @param sourceImage : RootImage&
+   * @param sampleImage : SampleImage&
    * @return AffineMatrix 
    */
   AffineMatrix calcAffineMatrix(RootImage &sourceImage, SampleImage &sampleImage);
@@ -65,7 +65,7 @@ public:
   /**
    * @brief Function used to calculate position of sample image
    * 
-   * @param data 
+   * @param data : FeatureList&
    * @return Vector 
    */
   Vector calcPos(FeatureList &data);
@@ -73,7 +73,7 @@ public:
   /**
    * @brief Function used to calculate orientation of sample image
    * 
-   * @param data 
+   * @param data : FeatureList&
    * @return Vector 
    */
   Vector calcOrientation(FeatureList &data);

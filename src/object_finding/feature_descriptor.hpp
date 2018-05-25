@@ -33,7 +33,7 @@ private:
   DescriptorList descriptorList;
 
    /**
-   * @brief Function used to change some surf detector settings belonging to descriptors 
+   * @brief Function used to change surf detector settings belonging to descriptors 
    * 
    */
   void initDescriptor();
@@ -44,7 +44,7 @@ public:
   /**
    * @brief Function used to compute descriptor list
    * 
-   * @param sourceImage 
+   * @param sourceImage : Image&
    * @return DescriptorList& 
    */
   DescriptorList &getDescriptorList(Image &sourceImage);

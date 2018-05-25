@@ -22,7 +22,9 @@ namespace lucidy{
 
 /**
  * @brief ImageViewer implementation
- * @details The window manager is made in the global Gui interface and the settings are changed throughout this class
+ * 
+ * The window manager is made in the global GUI
+ * and the settings are changed throughout this class.
  */
 class ImageViewer: public Gui{
 
@@ -31,14 +33,17 @@ public:
     ImageViewer(settings::WIN::GUI::data & settings);
 
     /**
-     * @brief This function is used display a image on a display
-     * @param image 
+     * @brief This function is used display an image on a display
+     * 
+     * @param Image : image&
      */
     void show(Image & image);
 
     /**
      * @brief This function is used to change the settings of the ImageViewer
-     * @details in reality the settings are being passed trough and changed in the global gui interface
+     *
+     * The settings can be changed through the global GUI.
+     * 
      * @param settings : settings::WIN:GUI:data&
      */
     void changeSettings(settings::WIN::GUI::data & settings);
