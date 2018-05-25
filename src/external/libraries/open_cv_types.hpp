@@ -12,17 +12,16 @@
 
 #include <vector>
 #include "open_cv.hpp"
-#include "../../image/sample_image.hpp"
 
 namespace lucidy{
     typedef std::vector<cv::KeyPoint> FeatureList;
     typedef cv::Ptr<cv::xfeatures2d::SURF> SurfDetector;
     typedef cv::Mat DescriptorList;
     typedef struct{int x; int y;} Vector;
-    typedef std::vector<cv::Match> MatchList;
+    typedef std::vector<cv::DMatch> MatchList;
     typedef cv::Mat AffineMatrix;
 
-    struct FoundImageData{ SampleImage image; AffineMatrix matrix; bool match; };
+    struct FoundImageData{ int id; AffineMatrix matrix; bool match; };
     typedef std::vector<FoundImageData> FoundImageList;
 
 }

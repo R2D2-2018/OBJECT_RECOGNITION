@@ -27,7 +27,6 @@ class FeatureDetector
 private:
   SurfDetector detector;
   settings::FDT::data &settings;
-  FeatureList featureList;
 
   /**
    * @brief Function used to initialize the surf detector with their belonging setting 
@@ -39,12 +38,11 @@ public:
   FeatureDetector(settings::FDT::data &settings);
 
   /**
-   * @brief Function used to return last detected FeatureList
+   * @brief Function used to detect features and put them into the image
    * 
    * @param sourceImage 
-   * @return FeatureList& 
    */
-  FeatureList &getFeatureList(Image &sourceImage);
+  void detectFeatures(Image &sourceImage);
   
   /**
    * @brief Function used to return SURF detector so it can be used by another class 

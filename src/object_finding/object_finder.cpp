@@ -5,7 +5,8 @@ namespace lucidy{
     
 
     ObjectFinder::ObjectFinder(settings::OBF::data & settings):
-        comparator(settings)
+        comparator(settings),
+        matchThreshold(settings.matchThreshold)
     {}
 
     void ObjectFinder::initFinder(){
@@ -14,12 +15,21 @@ namespace lucidy{
 
     }
 
-    bool ObjectFinder::isMatch(RootImage & sourceImage, SampleImage & sampleImage){
-        /// use a complex algorithm to decide wether the match results are valid. return true of false
+    float ObjectFinder::calcMatch(RootImage & sourceImage, SampleImage & sampleImage){
         
         MatchList results = comparator.getMatchList(sourceImage, sampleImage );
-        /// if result == ?something? return true : return false;
-        return true;
+        float sizeResult = static_cast<int>(results.size()) * 1.0;
+        float sizeSample = static_cast<int>(sampleImage.descriptors.rows ) * 1.0;
+        
+        return ((sizeResult / sizeSample) * (float)(100.0) );
+
+    }
+
+    MatchList ObjectFinder::getMatches(){ return comparator.getMatchList(); }
+
+    bool ObjectFinder::isMatch(RootImage & sourceImage, SampleImage & sampleImage){
+        /// use a complex algorithm to decide wether the match results are valid. return true of false
+        return calcMatch(sourceImage, sampleImage) >= matchThreshold;
 
     }
 
@@ -30,7 +40,7 @@ namespace lucidy{
         if ( isMatch( sourceImage, sampleImage ) ){ valid = true; }
         
         FoundImageData temp;
-        temp.image = sampleImage;
+        temp.id = 1;
         temp.matrix = comparator.calcAffineMatrix(sourceImage, sampleImage);
         temp.match = valid;
             

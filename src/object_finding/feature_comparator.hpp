@@ -4,7 +4,7 @@
  * of the source and root image. A descriptor list is based of a feature list
  * @file feature_comparator.hpp
  * @author Arsalan Anwari
- * @date 2018-05-16
+ * @date 2018-05-25
  */
 #ifndef FEATURE_COMPARATOR_HPP
 #define FEATURE_COMPARATOR_HPP
@@ -23,7 +23,7 @@ class FeatureComparator
 {
 private:
   lucidy::settings::OBF::data &settings;
-  cv::DescriptorMatcher matcher;
+  cv::BFMatcher matcher;
   MatchList matchList;
 
   FeatureDetector detector;
@@ -39,13 +39,32 @@ public:
   FeatureComparator(lucidy::settings::OBF::data &settings);
 
   /**
+   * @brief Function that uses an algorithm to recognize matches between two descriptor lists.
+   * @details simple FLANN algorithm is used to find good matches. 
+   * @param sourceImage 
+   * @param sampleImage 
+   * @warning If sample image already contains descriptors or features, these will not be recalculated again. 
+   * Please clear those first
+   */
+  void calcMatchList(RootImage &sourceImage, SampleImage &sampleImage);
+
+  /**
    * @brief Function that uses an algorithm to recognize matches between two descriptor lists. 
-   * 
+   * @details simple FLANN algorithm is used to find good matches. goodmatches are returned 
    * @param sourceImage 
    * @param sampleImage 
    * @return MatchList 
+   * @warning If sample image already contains descriptors or features, these will not be recalculated again. 
+   * Please clear those first
    */
   MatchList getMatchList(RootImage &sourceImage, SampleImage &sampleImage);
+
+  /**
+   * @brief Function used to return latest calculated matchlist
+   * 
+   * @return MatchList 
+   */
+  MatchList getMatchList();
 
   /**
    * @brief Function used to calculate the sample image affine matrix that contains both position and orientation

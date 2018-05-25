@@ -23,7 +23,7 @@ class ObjectFinder
 {
 private:
   FeatureComparator comparator;
-
+  float & matchThreshold;
   /**
    * @brief This function is used to initialize the object finder with some optional settings
    * 
@@ -32,6 +32,20 @@ private:
 
 public:
   ObjectFinder(settings::OBF::data &settings);
+
+  /**
+   * @brief Function used to check the percentage a sample image matches with the root image
+   * @param sourceImage 
+   * @param sampleImage 
+   * @return float 
+   */
+  float calcMatch(RootImage &sourceImage, SampleImage &sampleImage);
+  
+  /**
+   * @brief Function used a passtrough getter to retreive latest calculated matchlist 
+   * @return MatchList 
+   */
+  MatchList getMatches();
 
   /**
    * @brief Function used to check wether two a sample image matches or come forth in a root image

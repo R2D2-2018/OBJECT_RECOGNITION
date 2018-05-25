@@ -24,7 +24,6 @@ private:
   FeatureDetector &detector;
   settings::FDC::data &settings;
   SurfDetector &descriptor;
-  DescriptorList descriptorList;
 
    /**
    * @brief Function used to change some surf detector settings belonging to descriptors 
@@ -41,7 +40,7 @@ public:
    * @param sourceImage 
    * @return DescriptorList& 
    */
-  DescriptorList &getDescriptorList(Image &sourceImage);
+  void computeDescriptors(Image &sourceImage);
 };
 
 } // namespace lucidy
