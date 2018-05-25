@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/object_recognition.dir/src/window/interface/cli.cpp.o"
   "CMakeFiles/object_recognition.dir/src/window/image_viewer.cpp.o"
   "CMakeFiles/object_recognition.dir/src/main.cpp.o"
+  "CMakeFiles/object_recognition.dir/test/test_main.cpp.o"
   "object_recognition.pdb"
   "object_recognition"
 )

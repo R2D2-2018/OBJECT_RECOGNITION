@@ -6,7 +6,7 @@ set (hwlib ${build_environment}/libraries/hwlib)
 include_directories (${hwlib}/library)
 
 set (catch ${build_environment}/libraries/Catch2)
-include_directories (${catch}/single_include)
+include_directories (${catch}/include)
 
 # Source Files:
 

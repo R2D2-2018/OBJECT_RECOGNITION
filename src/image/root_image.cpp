@@ -44,9 +44,9 @@ namespace lucidy{
 
     cv::String RootImage::getPath(){
         std::string path;
-        std::cout << "\r\nPlease insert path of RootImage: ";
+        std::cout << "Please insert path of RootImage: " << std::endl;
         std::cin >> path;
-        std:: cout << "\r\n \t-You inserted: " << path;
+        std:: cout << "\t-You inserted: " << path << std::endl;
         return cv::String(path);
     }
 

@@ -404,6 +404,33 @@ src/window/interface/gui.cpp.s:
 	$(MAKE) -f CMakeFiles/object_recognition.dir/build.make CMakeFiles/object_recognition.dir/src/window/interface/gui.cpp.s
 .PHONY : src/window/interface/gui.cpp.s
 
+test/test_main.o: test/test_main.cpp.o
+
+.PHONY : test/test_main.o
+
+# target to build an object file
+test/test_main.cpp.o:
+	$(MAKE) -f CMakeFiles/object_recognition.dir/build.make CMakeFiles/object_recognition.dir/test/test_main.cpp.o
+.PHONY : test/test_main.cpp.o
+
+test/test_main.i: test/test_main.cpp.i
+
+.PHONY : test/test_main.i
+
+# target to preprocess a source file
+test/test_main.cpp.i:
+	$(MAKE) -f CMakeFiles/object_recognition.dir/build.make CMakeFiles/object_recognition.dir/test/test_main.cpp.i
+.PHONY : test/test_main.cpp.i
+
+test/test_main.s: test/test_main.cpp.s
+
+.PHONY : test/test_main.s
+
+# target to generate assembly for a file
+test/test_main.cpp.s:
+	$(MAKE) -f CMakeFiles/object_recognition.dir/build.make CMakeFiles/object_recognition.dir/test/test_main.cpp.s
+.PHONY : test/test_main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -444,6 +471,9 @@ help:
 	@echo "... src/window/interface/gui.o"
 	@echo "... src/window/interface/gui.i"
 	@echo "... src/window/interface/gui.s"
+	@echo "... test/test_main.o"
+	@echo "... test/test_main.i"
+	@echo "... test/test_main.s"
 .PHONY : help
 
 

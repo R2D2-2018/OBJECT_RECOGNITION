@@ -24,8 +24,9 @@ set(sources
     src/window/interface/gui.cpp
     src/window/interface/cli.cpp
     src/window/image_viewer.cpp
-    src/main.cpp)
-set (unit_test_main test/test_main.cpp)
+    src/main.cpp
+    test/test_main.cpp)
+
 
 add_executable(${exe_name} ${sources})
 target_link_libraries( object_recognition ${OpenCV_LIBS} )
