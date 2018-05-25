@@ -1,8 +1,14 @@
 /**
- * @brief This file contains an implementation of the global Gui interface
- * @details The class made can be used to display an image on the display
  * @file image_viewer.hpp
+ * 
+ * @brief This file contains an implementation of the global Gui interface
+ * 
+ * @details The class made can be used to display an image on the display
+ * 
  * @author Arsalan Anwari
+ * 
+ * @license See LICENSE
+ * 
  * @date 2018-05-19
  */
 

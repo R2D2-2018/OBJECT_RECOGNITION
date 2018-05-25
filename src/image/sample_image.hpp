@@ -1,9 +1,15 @@
 /**
+ * @file sample_image.hpp
+ * 
  * @brief Sample image wrapper file
+ * 
  * @details This file contains a class which is used to load in a sample image. A sample image can be defined
  * as the image used for comparing a shape ON A ROOT IMAGE.
- * @file sample_image.hpp
+
  * @author Arsalan Anwari
+ * 
+ * @license See LICENSE
+ * 
  * @date 2018-05-15
  */
 

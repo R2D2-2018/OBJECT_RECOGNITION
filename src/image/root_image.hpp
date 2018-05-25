@@ -1,9 +1,15 @@
 /**
+ * @file root_image.hpp
+ * 
  * @brief Root Image wrapper file
+ * 
  * @details This file contains a class which is used to load in a root image. A root image can be defined
  * as the image used to compare a shape ON
- * @file root_image.hpp
+
  * @author Arsalan Anwari
+ * 
+ * @license See LICENSE
+ * 
  * @date 2018-05-15
  */
 #ifndef ROOT_IMAGE_HPP

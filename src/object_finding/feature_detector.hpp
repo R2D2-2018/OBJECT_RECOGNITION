@@ -1,9 +1,15 @@
 /**
+ * @file feature_detector.hpp
+ * 
  * @brief Feature set detector file
+ * 
  * @details This file is used to detect features out of an image and put them into a feature list
  * This is done by using a openCV function named SURF.detect()
- * @file feature_detector.hpp
+
  * @author Arsalan Anwari
+ * 
+ * @license See LICENSE
+ * 
  * @date 2018-05-16
  */
 

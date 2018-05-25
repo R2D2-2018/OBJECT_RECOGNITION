@@ -1,9 +1,15 @@
 /**
+ * @file feature_comparator.hpp
+ * 
  * @brief Feature comparator file
+ * 
  * @details This file contains the class with the main logic, to compare two descriptor lists
  * of the source and root image. A descriptor list is based of a feature list
- * @file feature_comparator.hpp
+
  * @author Arsalan Anwari
+ * 
+ * @license See LICENSE
+ * 
  * @date 2018-05-16
  */
 #ifndef FEATURE_COMPARATOR_HPP

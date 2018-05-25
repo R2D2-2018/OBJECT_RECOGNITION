@@ -1,12 +1,18 @@
 /**
- * @brief Image interface 
+ * @file    image.hpp
+ * 
+ * @brief   Image interface
+ *  
  * @details This file contains a interface which is currently used by the classes RootImage and SampleImage.
  * In the future, we will be switching to another openCV library for the Nvidea Jetson.
- * This library works a tad different and does not share same named functions and classes.
+ * This library works a tad bit different and does not share same named functions and classes.
  * By implementing this interface in another class you are able to change the Image functionality, without changing the base code. 
- * @file image.hpp
- * @author Arsalan Anwari
- * @date 2018-05-19
+ * 
+ * @author  Arsalan Anwari
+ * 
+ * @license See LICENSE
+ * 
+ * @date    2018-05-19
  */
 
 #ifndef IMAGE_HPP
@@ -39,9 +45,8 @@ class Image
      * @brief This function should be used to fill the image container with an image specified from a path
      * 
      * @param new_path : char const*
-     * @return Whether or not the set was successful
      */
-    virtual bool set(const char* new_path) = 0;
+    virtual void set(const char* new_path) = 0;
 
     /**
      * @brief This function should be used as a way to ask the user to input a image path. 

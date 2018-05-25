@@ -1,9 +1,15 @@
 /**
+ * @file object_finder.hpp
+ * 
  * @brief Module communication class file
+ * 
  * @details This file contains the class which will be used as the module
  * All operations to find an object or recognise one should go through this class
- * @file object_finder.hpp
+ * 
  * @author Arsalan Anwari
+ * 
+ * @license See LICENSE
+ * 
  * @date 2018-05-16
  */
 

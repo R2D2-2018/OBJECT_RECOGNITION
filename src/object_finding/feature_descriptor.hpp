@@ -1,9 +1,15 @@
 /**
+ * @file feature_descriptor.hpp
+ * 
  * @brief Feature descriptor file
+ * 
  * @details This file is used to compute orbit descriptors of a feature list. 
  * OpenCV uses the same surf detector class for this operation. This mean a reference to a feature detector object should be made
- * @file feature_descriptor.hpp
+ *
  * @author Arsalan Anwari
+ * 
+ * @license See LICENSE
+ * 
  * @date 2018-05-16
  */
 
