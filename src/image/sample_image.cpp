@@ -40,7 +40,7 @@ namespace lucidy{
         cv::String path = getPath();
         image = cv::imread(path, settings.flag);
         while (!image.data){
-            std:: cout << "\r\n \t-FILENAME ERROR: Could not find image: " << path << "\r\n";
+            std:: cout << "-FILENAME ERROR: Could not find image: " << path << std::endl;
             path = getPath();
             image = cv::imread(path, settings.flag);
         }
@@ -58,9 +58,9 @@ namespace lucidy{
 
     cv::String SampleImage::getPath(){
         std::string path;
-        std::cout << "\r\nPlease insert path of SampleImage: ";
+        std::cout << "Please insert path of SampleImage: " << std::endl;
         std::cin >> path;
-        std:: cout << "\r\n \t-You inserted: " << path;
+        std:: cout << "\t -You inserted: " << path << std::endl;
         return cv::String(path);
     }
 
