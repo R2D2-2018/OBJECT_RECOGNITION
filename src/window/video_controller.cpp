@@ -120,7 +120,7 @@ namespace lucidy{
             cv::Mat frame;
             recordFeed.clear();
             if (showRecording){ 
-                for(;;){ if( displayAndSaveFrame(recorder, frame) ){ stopRecording(recorder); return;} } 
+               if( displayAndSaveFrame(recorder, frame) ){ stopRecording(recorder); return;}
             }else{
                 if( saveFrame(recorder, frame) ){ stopRecording(recorder); return;}
             }

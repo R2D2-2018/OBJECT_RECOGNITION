@@ -13,6 +13,7 @@
 
 #include "../object_finding/object_finder.hpp"
 
+
 TEST_CASE("Feature comparator good match test", "AlgorithmTest"){
 
     lucidy::settings::IMG::data imgSet{cv::IMREAD_GRAYSCALE};

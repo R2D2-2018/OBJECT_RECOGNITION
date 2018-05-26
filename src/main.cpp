@@ -1,6 +1,8 @@
 // #include "object_finding/object_finder.hpp"
 // #include "window/video_controller.hpp"
 // #include <fstream>
+//#include <ctime>
+//#include <string>
 
 // lucidy::settings::OBF::data tmp{
 //   lucidy::settings::FDT::data{400},
@@ -23,6 +25,9 @@
 
 // int main( ){
 
+//   time_t now;
+//   std::string current_time;
+
 //   std::fstream myFile;
 //   myFile.open("/home/arsalan/ti-software/Build-environment/modules/OBJECT_RECOGNITION/src/test_results.txt", std::fstream::out | std::fstream::app);
 
@@ -32,11 +37,12 @@
 //   lucidy::VideoController vcr(recordSet);
 
 //   vcr.recordAndApply( 
-//     [&apple, &finder, &myFile](lucidy::RootImage & image)->cv::Mat{
-      
+//     [&apple, &finder, &myFile, &current_time, &now](lucidy::RootImage & image)->cv::Mat{
+//       now = time(0);
+//       current_time = ctime(&now);
 //       float matchValue = finder.calcMatch(image, apple);
 //       lucidy::MatchList goodMatches = finder.getMatches();
-//       myFile << "Match percentage: " << matchValue << "%%" <<"\r\n";
+//       myFile << "[" << current_time << "]" << " --> " << "Match percentage: " << matchValue << "%%" <<"\r\n";
 
 //        cv::Mat imgMatches;
 //        cv::drawMatches( 

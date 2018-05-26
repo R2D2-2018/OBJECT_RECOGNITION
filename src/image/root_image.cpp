@@ -31,7 +31,7 @@ namespace lucidy{
     bool RootImage::set(const char * newPath){
         if (image.data){ image = cv::Mat(); }
         image = cv::imread(newPath, settings.flag);
-        if (!image.data){ return false; }
+        if (!image.data){ std:: cout << "\r\n \t-FILENAME ERROR: Could not find image: " << path << "\r\n"; return false; }
         return true;
     }
 
