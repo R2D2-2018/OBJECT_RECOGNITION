@@ -30,7 +30,7 @@ endif (build_test_enabled)
 
 if (unit_test_enabled)
 add_executable (${unit_test} ${unit_test_main} ${sources})
-
+target_link_libraries( ${unit_test} ${OpenCV_LIBS} )
 add_test (
 	NAME ${unit_test}
 	COMMAND ./${unit_test}

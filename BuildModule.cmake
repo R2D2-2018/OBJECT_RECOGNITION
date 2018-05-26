@@ -1,4 +1,4 @@
-include (${build_environment}/flags.cmake)
+include (../../flags.cmake)
 
 set (sources ${sources}
     src/main.cpp
@@ -16,4 +16,5 @@ string (REGEX REPLACE ";" " " cxxflags "${cxxflags}")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${cxxflags}")
 set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
 
-add_executable (${PROJECT_NAME}.exe ${sources})
+add_executable (${exe_name} ${sources})
+target_link_libraries( object_recognition ${OpenCV_LIBS} )
