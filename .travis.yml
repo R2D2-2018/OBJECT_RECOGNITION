@@ -63,7 +63,7 @@ install:
   
   # We need to return to the repo "root" folder, so we can then 'cd' into the C++ project folder.
   - cd ../../
-  - ls
+  - ls ../../
 
 before_script:
   - gcc --version

@@ -8,7 +8,7 @@
  */
 
 #define CATCH_CONFIG_MAIN
-#include "../../../libraries/Catch2/single_include/catch.hpp"
+#include "catch.hpp"
 
 #include <stdlib.h>
 
