@@ -46,7 +46,7 @@ install:
   - cd build
   
   # Set build instructions for Ubuntu distro.
-  -  cmake -D OPENCV_EXTRA_MODULES_PATH= ../../opencv_contrib-3.4.1/modules -D WITH_TBB=ON -D INSTALL_C_EXAMPLES=ON -D WITH_EIGEN=OFF -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D .. WITH_OPENGL=ON
+  -  cmake -D OPENCV_EXTRA_MODULES_PATH= ../../opencv_contrib-3.4.1/modules -D WITH_TBB=ON -D INSTALL_C_EXAMPLES=ON -D WITH_EIGEN=OFF -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON ..
 
   # Run 'make' with four threads.
   - make -j4
