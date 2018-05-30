@@ -63,6 +63,7 @@ install:
   
   # We need to return to the repo "root" folder, so we can then 'cd' into the C++ project folder.
   - cd ../../
+  - ls
 
 before_script:
   - gcc --version
@@ -73,7 +74,7 @@ before_script:
   - lizard --version
 
 script: 
-  - source .fetch-build-environment.sh ~/build-environment
+  - source .fetch-build-environment.sh ~/Build-environment/
   - source test.sh
   - cmake CMakeLists.txt
   - make

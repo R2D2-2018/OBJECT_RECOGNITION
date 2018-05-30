@@ -1,5 +1,5 @@
 /**
- * @brief 
+ * @brief
  * Main entry point for first unit test
  * @file template_codde.cpp
  * @author  Dylan Rakiman, Arsalan Anwari
@@ -24,6 +24,6 @@
 
 // TEST_CASE("Sample Image initionalization succesfull"){
 //     sampleImage.init();
-//     cv::Mat tmp = sampleImage.get(); 
+//     cv::Mat tmp = sampleImage.get();
 //     REQUIRE( contains<cv::Mat, const char>(tmp, '1') );
 // }

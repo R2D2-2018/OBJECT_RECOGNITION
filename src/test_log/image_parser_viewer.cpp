@@ -3,13 +3,11 @@
  * @details This file contains the unit test with catch2 of the current Vertical Slice 2
  * Please uncomment the code and put the following code in the file "CMakeLists.txt"
  *      - src/test_log/image_parser_viewer.cpp
- * 
+ *
  * @file image_parser_viewer.cpp
  * @author Arsalan Anwari
  * @date 2018-05-19
  */
-
-
 
 // #define CATCH_CONFIG_MAIN
 // #include "/home/arsalan/ti-software/Build-environment/libraries/Catch2/single_include/catch.hpp"
@@ -38,17 +36,16 @@
 // TEST_CASE("Settings passtrough succesfull", "Setting Test"){
 //     lucidy::settings::WIN::GUI::data source{"TestWindow", 1, lucidy::WindowSize{1,1}, lucidy::Coordinate{10,10}};
 //     lucidy::settings::WIN::GUI::data test = source;
-//     bool b = ( 
-//         (test.name == source.name && test.flag == source.flag) && 
-//         ( 
+//     bool b = (
+//         (test.name == source.name && test.flag == source.flag) &&
+//         (
 //             (test.windowSize.height == source.windowSize.height && test.windowSize.width == source.windowSize.width) &&
-//             (test.windowPosition.x == source.windowPosition.x && test.windowPosition.y == source.windowPosition.y ) 
+//             (test.windowPosition.x == source.windowPosition.x && test.windowPosition.y == source.windowPosition.y )
 //         )
 //     );
 
 //     REQUIRE( b );
 // }
-
 
 // TEST_CASE("RootImage user input parser is correct", "UserInput Test"){
 //     lucidy::RootImage test;
@@ -77,7 +74,7 @@
 //     test1.set("/home/arsalan/Pictures/woutah.jpg");
 
 //     REQUIRE( test1.get().data );
-    
+
 //     lucidy::settings::IMG::data tmp{1};
 //     lucidy::SampleImage test2("/home/arsalan/Pictures/woutah.jpg", tmp );
 //     REQUIRE( test2.get().data );

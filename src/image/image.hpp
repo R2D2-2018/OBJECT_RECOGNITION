@@ -25,60 +25,62 @@
 #include <iostream>
 #include <string>
 
-namespace lucidy
-{
+namespace lucidy {
 /**
  * @brief Image interface
  */
-class Image
-{
-protected:
-  cv::Mat image;
+class Image {
+  protected:
+    cv::Mat image;
 
-  virtual cv::String getPath() = 0;
+    virtual cv::String getPath() = 0;
 
-public:
-  /**
-   * @brief This function should be used for the intialization process of the
-   * image container.
-   */
-  virtual void init() = 0;
+  public:
+    /**
+     * @brief This function should be used for the intialization process of the
+     * image container.
+     */
+    virtual void init() = 0;
 
-  /**
-   * @brief This function should be used to fill the image container with an
-   * image specified from a path.
-   * 
-   * It returns a boolean specifying whether or not the set was successful.
-   *
-   * @param[in] new_path : const char*
-   * @return bool
-   */
-  virtual bool set(const char *new_path) = 0;
+    /**
+     * @brief This function should be used to fill the image container with an
+     * image specified from a path.
+     *
+     * It returns a boolean specifying whether or not the set was successful.
+     *
+     * @param[in] new_path : const char*
+     * @return bool
+     */
+    virtual bool set(const char *new_path) = 0;
 
-  /**
-   * @brief This function should be used as a way to ask the user to input a
-   * image path.
-   *
-   * This image path can then be looked up and the image container can be filled
-   * with some image data
-   */
-  virtual void set() = 0;
-  /**
-   * @brief This function is used to return the usable data of the image
-   *
-   * @return cv::Mat
-   */
-  virtual cv::Mat get() { return image; }
+    /**
+     * @brief This function should be used as a way to ask the user to input a
+     * image path.
+     *
+     * This image path can then be looked up and the image container can be filled
+     * with some image data
+     */
+    virtual void set() = 0;
+    /**
+     * @brief This function is used to return the usable data of the image
+     *
+     * @return cv::Mat
+     */
+    virtual cv::Mat get() {
+        return image;
+    }
 
-  /**
-   * @brief This function can be used to check wether a image matches the
-   * required specifications
-   *
-   * Specifications like size, color, sharpness, etc.
-   *
-   * @return bool
-   */
-  virtual bool isValid() { return true; }
+    /**
+     * @brief This function can be used to check wether a image matches the
+     * required specifications
+     *
+     * Specifications like size, color, sharpness, etc.
+     *
+     * @return bool
+     */
+    virtual bool isValid() {
+        return true;
+    }
 };
 
 } // namespace lucidy
