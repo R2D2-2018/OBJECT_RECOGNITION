@@ -22,32 +22,31 @@ addons:
 
 before_install:
   - sudo apt-get update
-
-
-install:
   # OpenCV dependencies - Details available at: http://docs.opencv.org/trunk/doc/tutorials/introduction/linux_install/linux_install.html
   - sudo apt-get install -y build-essential
   - sudo apt-get install -y cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
   - sudo apt-get install -y python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+install:
   - sudo pip2 install lizard -q # Cyclomatic Complexity Check Tool
   - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc # Change symlinks of gcc to gcc-5
   - sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++ # Change symlinks of g++ to g++-5
 
   # Download v3.4.1 .zip file and extract.
-  - curl -sL https://github.com/Itseez/opencv/archive/3.4.zip > opencv.zip
+  - curl -sL https://github.com/Itseez/opencv/archive/3.4.1.zip > opencv.zip
   - unzip opencv.zip
   
   # Download EXTRA MODULES and extract.
-  - curl -sL https://github.com/Itseez/opencv_contrib/archive/3.4.zip > opencv_contrib.zip
+  - curl -sL https://github.com/Itseez/opencv_contrib/archive/3.4.1.zip > opencv_contrib.zip
   - unzip opencv_contrib.zip
   
   # Create a new 'build' folder.
-  - cd opencv-3.4
+  - cd opencv-3.4.1
   - mkdir build
   - cd build
   
   # Set build instructions for Ubuntu distro.
-  - cmake -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4/modules CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON ..
+  - cmake -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.1/modules CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON ..
   
   # Run 'make' with four threads.
   - make -j4
