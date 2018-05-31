@@ -37,16 +37,19 @@ install:
   # Download EXTRA MODULES from Github.
   - git clone https://github.com/opencv/opencv_contrib.git
 
+  # Copy xfeatures2d folder into OpenCV modules
+  - cp -R opencv_contrib/modules/xfeatures2d opencv/modules/
+
   # Create a new 'build' folder.
   - cd opencv
   - mkdir build
   - cd build
   
   # Set build instructions for Ubuntu distro.
-  -  cmake -D OPENCV_EXTRA_MODULES_PATH= ../../opencv_contrib/modules -D WITH_TBB=ON -D INSTALL_C_EXAMPLES=ON -D WITH_EIGEN=OFF -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D BUILD_opencv_dnn=OFF ..
+  -  cmake -D OPENCV_EXTRA_MODULES_PATH= ../../opencv_contrib/modules -D WITH_TBB=ON -D INSTALL_C_EXAMPLES=ON -D WITH_EIGEN=OFF -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D BUILD_opencv_dnn=OFF -D BUILD_opencv_java=OFF ..
 
-  # Run 'make'
-  - make
+  # Run 'make' with four threads
+  - make -j4
   
   # Install to OS.
   - sudo make install
