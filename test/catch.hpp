@@ -4552,8 +4552,8 @@ class IndexTracker : public TrackerBase {
 
 } // namespace TestCaseTracking
 
-using TestCaseTracking::IndexTracker;
 using TestCaseTracking::ITracker;
+using TestCaseTracking::IndexTracker;
 using TestCaseTracking::SectionTracker;
 using TestCaseTracking::TrackerContext;
 
@@ -7967,8 +7967,8 @@ std::string Catch::Matchers::Generic::Detail::finalizeDescription(const std::str
         return "matches predicate: \"" + desc + '"';
     }
 }
-// end catch_matchers_generic.cpp
-// start catch_matchers_string.cpp
+    // end catch_matchers_generic.cpp
+    // start catch_matchers_string.cpp
 
 #include <regex>
 
@@ -9452,7 +9452,7 @@ auto ReusableStringStream::str() const -> std::string {
     return static_cast<std::ostringstream *>(m_oss)->str();
 }
 
-///////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
 
 #ifndef CATCH_CONFIG_NOSTDOUT // If you #define this you must implement these functions
 std::ostream &cout() {
@@ -10236,8 +10236,8 @@ void IndexTracker::close() {
 
 } // namespace TestCaseTracking
 
-using TestCaseTracking::IndexTracker;
 using TestCaseTracking::ITracker;
+using TestCaseTracking::IndexTracker;
 using TestCaseTracking::SectionTracker;
 using TestCaseTracking::TrackerContext;
 
