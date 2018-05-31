@@ -70,10 +70,13 @@ before_script:
   - cmake --version
   - valgrind --version
   - lizard --version
+  # start X Virtual Framebuffer for emulated GUI
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 
 script: 
   - source .fetch-build-environment.sh ~/build-environment/
   - source test.sh
   - cmake CMakeLists.txt
   - make
-  - ./a.out
