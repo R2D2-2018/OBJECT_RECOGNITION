@@ -18,18 +18,6 @@ set (CMAKE_TOOLCHAIN_FILE ${toolchain}/compilers/host-gcc.cmake)
 project(object_recognition)
 set(exe_name "object_recognition")
 
-enable_testing()
-
-add_library(OpenCV SHARED IMPORTED)
-set_property(TARGET OpenCV PROPERTY IMPORTED_LOCATION "/usr/local/lib")
-find_package( OpenCV REQUIRED )
-
-set (opencv ${build_environment}/libraries/opencv)
-include_directories (${opencv}/include/opencv2/)
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-
 include (Sources.cmake)
 
 set (build_test_enabled TRUE)
