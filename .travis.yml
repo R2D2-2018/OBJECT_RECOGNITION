@@ -30,10 +30,10 @@ install:
   - sudo pip2 install lizard -q # Cyclomatic Complexity Check Tool
   - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc # Change symlinks of gcc to gcc-5
   - sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++ # Change symlinks of g++ to g++-5
-  #Go to upper directory
+  
+  #Save current repo directory and go to upper directory to install openCV somewhere else than root repo folder
+  - export REPO=${PWD}
   - cd ..
-  - ls
-  - echo pwd
 
   # Download opencv from Github.
   - git clone https://github.com/opencv/opencv.git
@@ -65,7 +65,7 @@ install:
   - echo "OpenCV installed."
   
   # We need to return to the repo "root" folder, so we can then 'cd' into the C++ project folder.
-  - cd ../../
+  - cd ${REPO}
 
 before_script:
   - gcc --version
