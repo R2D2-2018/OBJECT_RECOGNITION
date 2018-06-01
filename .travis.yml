@@ -31,9 +31,6 @@ install:
   - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc # Change symlinks of gcc to gcc-5
   - sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++ # Change symlinks of g++ to g++-5
 
-  #Move up one folder to create libraries
-  - cd ../
-
   # Download opencv from Github.
   - git clone https://github.com/opencv/opencv.git
   
@@ -64,7 +61,7 @@ install:
   - echo "OpenCV installed."
   
   # We need to return to the repo "root" folder, so we can then 'cd' into the C++ project folder.
-  - cd ../../build
+  - cd ../../
 
 before_script:
   - gcc --version
