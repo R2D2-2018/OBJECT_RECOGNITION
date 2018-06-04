@@ -1,6 +1,6 @@
 /**
  * @brief Adapter file that defines custom types from openCV
- * @details This file includes and uses types and classes from the library openCV 
+ * @details This file includes and uses types and classes from the library openCV
  * and implements them with a custom name.
  * @file open_cv_types.hpp
  * @author Arsalan Anwari, Dylan Rakiman
@@ -10,21 +10,27 @@
 #ifndef OPEN_CV_TYPES_HPP
 #define OPEN_CV_TYPES_HPP
 
-#include <vector>
+#include "image/sample_image.hpp"
 #include "open_cv.hpp"
-#include "../../image/sample_image.hpp"
+#include <vector>
 
-namespace lucidy{
-    typedef std::vector<cv::KeyPoint> FeatureList;
-    typedef cv::Ptr<cv::xfeatures2d::SURF> SurfDetector;
-    typedef cv::Mat DescriptorList;
-    typedef struct{int x; int y;} Vector;
-    typedef std::vector<cv::DMatch> MatchList;
-    typedef cv::Mat AffineMatrix;
+namespace lucidy {
+typedef std::vector<cv::KeyPoint> FeatureList;
+typedef cv::Ptr<cv::xfeatures2d::SURF> SurfDetector;
+typedef cv::Mat DescriptorList;
+typedef struct {
+    int x;
+    int y;
+} Vector;
+typedef std::vector<cv::DMatch> MatchList;
+typedef cv::Mat AffineMatrix;
 
-    struct FoundImageData{ SampleImage image; AffineMatrix matrix; bool match; };
-    typedef std::vector<FoundImageData> FoundImageList;
+struct FoundImageData {
+    SampleImage image;
+    AffineMatrix matrix;
+    bool match;
+};
+typedef std::vector<FoundImageData> FoundImageList;
 
-}
-#endif //OPEN_CV_TYPES_HPP
-
+} // namespace lucidy
+#endif // OPEN_CV_TYPES_HPP
