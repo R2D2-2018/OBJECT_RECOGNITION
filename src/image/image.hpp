@@ -25,16 +25,22 @@ namespace lucidy
 class Image
 {
   protected:
-    cv::Mat image;
+    cv::Mat image; // image data container
   
   public:
-    FeatureList features;
-    DescriptorList descriptors;
+    FeatureList features; // featurelist of image
+    DescriptorList descriptors; // descriptor list of image
 
     /**
      * @brief This function should be used for the intialization process of the image container. 
      */
     virtual void init() = 0;
+
+    /**
+     * @brief This function should be used for the processing of an image
+     * 
+     */
+    virtual void preProcess() = 0;
 
     /**
      * @brief This function should be used to fill the image container with an image specified from a path
@@ -60,7 +66,7 @@ class Image
      * @brief This function is used to return the usable data of the image 
      * @return cv::Mat 
      */
-    virtual cv::Mat get() { return image; }
+    virtual const cv::Mat get() { return image; }
 
     /**
      * @brief This function can be used to check wether a image matches the required specifications

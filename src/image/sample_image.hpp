@@ -43,6 +43,12 @@ public:
   void init() override;
 
   /**
+   * @brief Function used to preprocess image with user defined settings 
+   * 
+   */
+  void preProcess() override;
+
+  /**
    * @brief Function used to check wether an loaded image is a valid sample image 
    * 
    * @return true : sample image is calid
@@ -55,7 +61,7 @@ public:
    * 
    * @return cv::Mat 
    */
-  cv::Mat get() override;
+  const cv::Mat get() override;
 
   /**
      * @brief This function is used as a way to ask the user to input a image path. 

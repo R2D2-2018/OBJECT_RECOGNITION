@@ -14,12 +14,14 @@ namespace lucidy{
         cv::imshow(window_settings.name, image.get() );
     }
 
-    void ImageViewer::show(Image & image, char loop){
-        for (;;){
-            cv::imshow(window_settings.name, image.get() );
-            char key = cv::waitKey(window_settings.refreshRate);
-            if (key == window_settings.exitKey){  return;} 
-        }
+    void ImageViewer::show(Image & image, bool loop){
+        if (loop){
+            for (;;){
+                cv::imshow(window_settings.name, image.get() );
+                char key = cv::waitKey(window_settings.refreshRate);
+                if (key == window_settings.exitKey){  return;} 
+            }
+        }else{ show(image); }
     }
     
     void ImageViewer::showAndExecute(Image & image, std::function<void()> & task, bool executeOnce){

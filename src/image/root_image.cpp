@@ -3,7 +3,11 @@
 namespace lucidy{
    
     RootImage::RootImage(){
-        settings = settings::IMG::data{cv::IMREAD_GRAYSCALE};
+        settings = settings::IMG::data{
+            lucidy::Coordinate{7,7},
+            0,0, false,
+            cv::IMREAD_COLOR
+        };
     }
 
     RootImage::RootImage(const char* path, settings::IMG::data & settings):
@@ -13,7 +17,24 @@ namespace lucidy{
 
      void RootImage::init(){
         /// <initialize with imread and settings params, Remove temporary code below
-        set(path);
+        if ( set(path) ){ preProcess(); }  
+    }
+
+    void RootImage::preProcess(){
+        cv::GaussianBlur( image, image, cv::Size(settings.smoothMask.x, settings.smoothMask.y), 2, 2 );
+        cv::cvtColor(image, image, cv::COLOR_BGR2RGB);
+        
+        if (settings.applyThreshold){
+            std::vector<cv::Mat> channels;
+            cv::cvtColor(image, image, cv::COLOR_BGR2HSV);
+            cv::split(image, channels);
+
+            cv::threshold(channels[0], channels[0], settings.maxHue, 0, cv::THRESH_TOZERO_INV );
+            cv::threshold(channels[1], channels[1], settings.maxSaturation, 0, cv::THRESH_TOZERO );
+            
+            cv::merge(channels, image);
+            cv::cvtColor(image, image, cv::COLOR_HSV2RGB);
+        }
     }
 
 
@@ -40,7 +61,7 @@ namespace lucidy{
         image = newImage;
     }
 
-    cv::Mat RootImage::get(){
+    const cv::Mat RootImage::get(){
         return image;
     }
 

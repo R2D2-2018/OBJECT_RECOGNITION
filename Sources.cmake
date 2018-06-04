@@ -21,8 +21,9 @@ set (sources
     src/window/interface/cli.cpp
     src/window/image_viewer.cpp
     src/window/video_controller.cpp
-    src/test_log/live_video_feed_object_recognition.cpp
     src/main.cpp
 )
+
+# src/test_log/live_video_feed_object_recognition.cpp
 
 

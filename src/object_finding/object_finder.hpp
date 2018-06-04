@@ -11,7 +11,8 @@
 #define OBJECT_FINDER_HPP
 
 #include "feature_comparator.hpp"
-
+#include <cmath>
+#include <cstdlib>
 namespace lucidy
 {
 
@@ -22,13 +23,45 @@ namespace lucidy
 class ObjectFinder
 {
 private:
-  FeatureComparator comparator;
-  float & matchThreshold;
+  FeatureComparator comparator; //copy of comparator
+  float & matchThreshold; //copy of threshold 
+  
   /**
    * @brief This function is used to initialize the object finder with some optional settings
    * 
    */
   void initFinder();
+  
+  /**
+   * @brief This function is used to draw a line on an image
+   * 
+   * @param output : cv::Mat&
+   * @param start : cv::Point2f const&
+   * @param end 
+   * @param color 
+   * @param lineWidth 
+   */
+  void drawLine(cv::Mat & output, const cv::Point2f & start, const cv::Point2f & end, const cv::Scalar & color, const int & lineWidth = 4);
+  
+  /**
+   * @brief This function is used to draw a square which takes perspective into consideration
+   * 
+   * @param input : sample image 
+   * @param output : image
+   * @param T : homography matrix
+   * @param color 
+   */
+  void drawSquare(const cv::Mat & input, cv::Mat & output, AffineMatrix & T, const cv::Scalar & color = cv::Scalar(66,66,244) );
+  
+  /**
+   * @brief This function is used to draw a triangle on the screen
+   * @details perspective is not taken into consieration. 
+   * @param input 
+   * @param output 
+   * @param color 
+   */
+  void drawTriangle(PixelCoordinates & input, cv::Mat & output, const cv::Scalar & color = cv::Scalar(66,66,244) );
+  
 
 public:
   ObjectFinder(settings::OBF::data &settings);
@@ -40,6 +73,25 @@ public:
    * @return float 
    */
   float calcMatch(RootImage &sourceImage, SampleImage &sampleImage);
+
+  /**
+   * @brief Function used to draw match with a indicator based on the amount of good matches on a image 
+   * 
+   * @param input 
+   * @param output 
+   * @param goodMatches 
+   */
+  void drawMatch(SampleImage & input, RootImage & output, MatchList & goodMatches);
+
+  /**
+   * @brief Funciton used to draw a circle on a image without taking perspecitve into consideration 
+   * 
+   * @param input 
+   * @param output 
+   * @param radius 
+   * @param color 
+   */
+  void drawCircle(MatchList & input, RootImage & output, const int & radius, const cv::Scalar & color = cv::Scalar(66,66,244) );
   
   /**
    * @brief Function used a passtrough getter to retreive latest calculated matchlist 

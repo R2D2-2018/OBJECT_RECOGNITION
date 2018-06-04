@@ -18,6 +18,11 @@ namespace lucidy{
     namespace settings{
 
     namespace FDT{
+        
+        /**
+         * @brief Used in Feature detector
+         * 
+         */
         struct data{
             double hessianThreshold;
             int octavesNr = 4;
@@ -27,6 +32,10 @@ namespace lucidy{
     }
 
     namespace FDC{
+        /**
+         * @brief Used in Feature descriptor
+         * 
+         */
         struct data{
             bool extendDescriptor = true;
             bool calcUpright = false;
@@ -34,6 +43,10 @@ namespace lucidy{
     }
 
     namespace OBF{
+        /**
+         * @brief Used in Object finder or comparator
+         * @details uses settings of feature detecotr and descriptor
+         */
         struct data{
             FDT::data fdt;
             FDC::data fdc;
@@ -43,23 +56,39 @@ namespace lucidy{
     }
 
     namespace IMG{
+        /**
+         * @brief Used as image settings (root/sample)
+         * 
+         */
         struct data{
+            Coordinate smoothMask;
+            int maxHue;
+            int maxSaturation;
+            bool applyThreshold;
             int flag = 1;
         };
     }
 
     namespace WIN{
         namespace GUI{
+            /**
+             * @brief Used in GUI interface or classes that implemet it
+             * 
+             */
             struct data{
                 const char* name;
                 int flag;
-                int refreshRate;
+                int refreshRate = (1000/refreshRate);
                 WindowSize windowSize;
                 Coordinate windowPosition;
                 char exitKey = 'q';
             };
 
             namespace VIW{
+                /**
+                 * @brief Used in video controller which implements gui settings
+                 * 
+                 */
                 struct data{
                     GUI::data guiSet;
                     Cameras camNr;

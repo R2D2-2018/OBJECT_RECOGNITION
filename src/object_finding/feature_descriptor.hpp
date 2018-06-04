@@ -40,7 +40,7 @@ public:
    * @param sourceImage 
    * @return DescriptorList& 
    */
-  void computeDescriptors(Image &sourceImage);
+  bool computeDescriptors(Image &sourceImage);
 };
 
 } // namespace lucidy

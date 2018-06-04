@@ -31,7 +31,7 @@ private:
    * @return cv::String 
    */
   cv::String requestPath();
-
+  
 public:
 
   RootImage();
@@ -41,6 +41,12 @@ public:
    * @brief Function used to load in image from image path and settings.
    */
   void init() override;
+
+  /**
+   * @brief Function used to preprocess image with user defined settings 
+   * 
+   */
+  void preProcess() override; 
 
   /**
      * @brief This function is used as a way to ask the user to input a image path. 
@@ -68,7 +74,7 @@ public:
    * @brief Function used to retrieve usable data from image container
    * @return cv::Mat 
    */
-  cv::Mat get() override;
+  const cv::Mat get() override;
 
 };
 

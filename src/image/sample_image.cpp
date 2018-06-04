@@ -13,12 +13,27 @@ namespace lucidy{
         /// initialize with imread and settings params, check if image specifications are valid
         /// if not change image OR give error message. 
          if (!isValid()){ return; }
-         set(path); 
-        
-        
+         if ( set(path) ){ preProcess(); }  
     }
 
-    cv::Mat SampleImage::get(){
+    void SampleImage::preProcess(){
+        cv::GaussianBlur( image, image, cv::Size(settings.smoothMask.x, settings.smoothMask.y), 2, 2 );
+        cv::cvtColor(image, image, cv::COLOR_BGR2RGB);
+        
+        if (settings.applyThreshold){
+            std::vector<cv::Mat> channels;
+            cv::cvtColor(image, image, cv::COLOR_BGR2HSV);
+            cv::split(image, channels);
+
+            cv::threshold(channels[0], channels[0], settings.maxHue, 0, cv::THRESH_TOZERO_INV );
+            cv::threshold(channels[1], channels[1], settings.maxSaturation, 0, cv::THRESH_TOZERO );
+            
+            cv::merge(channels, image);
+            cv::cvtColor(image, image, cv::COLOR_HSV2RGB);
+        }
+    }
+
+    const cv::Mat SampleImage::get(){
         return image;
     }
     

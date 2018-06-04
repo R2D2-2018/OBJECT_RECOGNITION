@@ -15,6 +15,9 @@
 
 namespace lucidy
 {
+
+enum class IMAGE_TYPE{ ROOT_IMAGE, SAMPLE_IMAGE };
+
 /**
  * @brief feature comparator class
  * @details contains both a detector and descriptor
@@ -22,12 +25,14 @@ namespace lucidy
 class FeatureComparator
 {
 private:
-  lucidy::settings::OBF::data &settings;
-  cv::BFMatcher matcher;
-  MatchList matchList;
+  lucidy::settings::OBF::data &settings; //parameter settings
+  cv::FlannBasedMatcher matcher; //flann matcher
+  std::vector<MatchList> matchList; //temporary container to store matches
+  MatchList goodMatches; //container to store good machtes 
+  AffineMatrix T;
 
-  FeatureDetector detector;
-  FeatureDescriptor descriptor;
+  FeatureDetector detector; //copy of detector
+  FeatureDescriptor descriptor; //copy of descriptor
 
   /**
    * @brief Function used to pass initilaize detector and descriptor with their settings
@@ -35,8 +40,19 @@ private:
    */
   void initMatcher();
 
+
 public:
   FeatureComparator(lucidy::settings::OBF::data &settings);
+
+  /**
+   * @brief Get the Pixel Coordinates of matches
+   * 
+   * @param goodMatches : &MatchList
+   * @param image : &Image
+   * @param type : int
+   * @return PixelCoordinates 
+   */
+  PixelCoordinates getPixelCoordinates(MatchList & goodMatches, Image & image, const IMAGE_TYPE & type);
 
   /**
    * @brief Function that uses an algorithm to recognize matches between two descriptor lists.
@@ -81,7 +97,7 @@ public:
    * @param data 
    * @return Vector 
    */
-  Vector calcPos(FeatureList &data);
+  Vector calcPos(AffineMatrix &data);
 
   /**
    * @brief Function used to calculate orientation of sample image
@@ -89,7 +105,7 @@ public:
    * @param data 
    * @return Vector 
    */
-  Vector calcOrientation(FeatureList &data);
+  Vector calcOrientation(AffineMatrix &data);
 };
 
 } // namespace lucidy

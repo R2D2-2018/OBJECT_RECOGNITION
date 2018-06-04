@@ -159,7 +159,7 @@ namespace lucidy{
             frameImage.set(frame);
 
             result = apply(frameImage);
-            cv::imshow(window_settings.name, result );
+            try{ cv::imshow(window_settings.name, result ); }catch(cv::Exception &err){err.what();}
             char key = cv::waitKey(window_settings.refreshRate);
             if (key == window_settings.exitKey){ endTask(); stopRecording(recorder); return;}
 

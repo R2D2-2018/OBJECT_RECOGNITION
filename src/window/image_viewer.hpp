@@ -37,7 +37,7 @@ public:
      * @brief This function is used to display a image in a window constently in a loop
      * @param image 
      */
-    void show(Image & image, char loop);
+    void show(Image & image, bool loop);
 
     /**
      * @brief This function is used to display a a image in window constently whilist executing a task sequantual
