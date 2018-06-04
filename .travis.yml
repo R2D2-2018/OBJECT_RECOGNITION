@@ -82,5 +82,3 @@ before_script:
 script: 
   - source .fetch-build-environment.sh ~/build-environment/
   - ./test.sh
-  - cmake CMakeLists.txt
-  - make

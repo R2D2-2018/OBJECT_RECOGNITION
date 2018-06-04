@@ -11,7 +11,7 @@ from sys import exit, argv
 
 def isClangFormatted(fileDir):
     pargs = [
-        "clang-format",
+        "clang-format-5.0",
         path.join(fileDir),
         "--output-replacements-xml"
     ]
