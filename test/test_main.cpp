@@ -43,13 +43,7 @@ TEST_CASE("Settings passtrough succesfull", "Setting Test") {
     REQUIRE(b);
 }
 
-// TEST_CASE("RootImage user input parser ", "UserInput Test"){
-//     lucidy::RootImage test;
-//     test.set();
-//     REQUIRE( test.get().data );
-// }
-
-/// Sets the file location of our sample image, namely the same folder as test_main.cpp
+/// Sets the file location of our sample image, namely the same folder as test_main.cpp. Also sets incorrect path.
 std::string source_path = __FILE__;
 std::string str_path = source_path.substr(0, source_path.rfind("/")) + "/sample.jpg";
 const char *path = str_path.c_str();
@@ -66,12 +60,6 @@ TEST_CASE("RootImage normal parser ", "Input Test") {
     REQUIRE(test2.set(path) == true);
     REQUIRE(test2.set(wrong_path) == false);
 }
-
-// TEST_CASE("SampleImage user input parser ", "UserInput Test"){
-//     lucidy::SampleImage test;
-//     test.set();
-//     REQUIRE( test.get().data );
-// }
 
 TEST_CASE("SampleImage normal parser ", "Input Test") {
     lucidy::SampleImage test1;
