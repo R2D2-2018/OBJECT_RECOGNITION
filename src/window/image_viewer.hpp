@@ -15,7 +15,7 @@
 #ifndef IMAGE_VIEWER_HPP
 #define IMAGE_VIEWER_HPP
 
-#include "../image/image.hpp"
+#include "image/image.hpp"
 #include "interface/gui.hpp"
 
 namespace lucidy {
@@ -29,7 +29,15 @@ namespace lucidy {
 class ImageViewer : public Gui {
 
   public:
+    /**
+     * @brief Default constructor, does not initialise GUI
+     */
     ImageViewer();
+    /**
+     * @brief This constructor takes window settings as parameter and initilialises a GUI
+     *
+     * @param settings::WIN::GUI::data : settings&
+     */
     ImageViewer(settings::WIN::GUI::data &settings);
 
     /**

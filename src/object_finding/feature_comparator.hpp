@@ -15,9 +15,9 @@
 #ifndef FEATURE_COMPARATOR_HPP
 #define FEATURE_COMPARATOR_HPP
 
-#include "../image/root_image.hpp"
-#include "../image/sample_image.hpp"
 #include "feature_descriptor.hpp"
+#include "image/root_image.hpp"
+#include "image/sample_image.hpp"
 
 namespace lucidy {
 /**

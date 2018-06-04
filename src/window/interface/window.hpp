@@ -10,7 +10,7 @@
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
 
-#include "../../external/settings.hpp"
+#include "external/settings.hpp"
 namespace lucidy {
 
 /**

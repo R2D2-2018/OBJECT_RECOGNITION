@@ -10,7 +10,7 @@
 #ifndef OPEN_CV_TYPES_HPP
 #define OPEN_CV_TYPES_HPP
 
-#include "../../image/sample_image.hpp"
+#include "image/sample_image.hpp"
 #include "open_cv.hpp"
 #include <vector>
 

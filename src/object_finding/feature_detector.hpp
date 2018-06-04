@@ -16,9 +16,9 @@
 #ifndef FEATURE_DETECTOR_HPP
 #define FEATURE_DETECTOR_HPP
 
-#include "../external/libraries/open_cv_types.hpp"
-#include "../external/settings.hpp"
-#include "../image/image.hpp"
+#include "external/libraries/open_cv_types.hpp"
+#include "external/settings.hpp"
+#include "image/image.hpp"
 
 namespace lucidy {
 

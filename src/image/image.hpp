@@ -20,8 +20,8 @@
 #ifndef IMAGE_HPP
 #define IMAGE_HPP
 
-#include "../external/libraries/open_cv.hpp"
-#include "../external/settings.hpp"
+#include "external/libraries/open_cv.hpp"
+#include "external/settings.hpp"
 #include <iostream>
 #include <string>
 

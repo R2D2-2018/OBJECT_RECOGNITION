@@ -14,6 +14,8 @@ include_directories (${catch}/single_include)
 
 # Source Files:
 
+include_directories (src/)
+
 set (sources
     "src/image/root_image.cpp"
     "src/image/sample_image.cpp"
