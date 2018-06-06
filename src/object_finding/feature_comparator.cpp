@@ -80,8 +80,6 @@ namespace lucidy{
     Vector FeatureComparator::calcPos(AffineMatrix & data){
         /// use complex algorithm to calculate {ask Dylan} position
         return Vector{1,1};
-
-
     }
 
     Vector FeatureComparator::calcOrientation(AffineMatrix & data){

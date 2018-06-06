@@ -28,11 +28,9 @@ namespace lucidy{
  
 		try{ cv::perspectiveTransform(sampleCorners, rootCorners, T); }catch(cv::Exception & err){}
 	
-        int j=0;
-        for (int i = 0; i < 4; i++){
+        for (int i = 0, j=0; i < 4; i++){
             j = i+1;
             if (j == 4){j = 0;}
-            //std::cout<< "i: " << i << " j: " << j << "\r\n";
             drawLine(
                 output, 
                 rootCorners[i],
@@ -40,8 +38,6 @@ namespace lucidy{
                 color
             );
         }
-
-        //std::cout << "\r\n";
     }
 
     void ObjectFinder::drawTriangle(PixelCoordinates & input, cv::Mat & output, const cv::Scalar & color ){
@@ -69,10 +65,9 @@ namespace lucidy{
             if (det < 0) {return; }
             if( std::fabs(det) > 1 ){ return; }
             drawSquare(input.get(), image, T );
-        }/*else if(size == 3){
-            PixelCoordinates triangleData = comparator.getPixelCoordinates(goodMatches, output, IMAGE_TYPE::ROOT_IMAGE);
-            drawTriangle(triangleData, image);
-        }*/
+        }else if(size <= 3){
+            drawCircle(goodMatches, output,  20 , cv::Scalar(255,0,0) );
+        }
         
     }
 

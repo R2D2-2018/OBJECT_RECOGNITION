@@ -4,9 +4,7 @@
 
 i. Required: Basic tools on build environment 
 
-1.      make new directory somewhere in your file system
-            - I caled mine "ti-software" in the directory /home/{username}
-            - Logically i would reccomend to make this directory in "{path to build environment}/Build-environment/libraries"
+1.      go to this directory "{path to build environment}/Build-environment/libraries"
 
 2.      open the terminal on this directory and type the following commands
 2.1     sudo apt-get install build-essential
@@ -74,6 +72,11 @@ iii. Required: QT5. Install with the command: sudo apt install qt5-default
 
 16.    install with the command: sudo make install 
 
+
+=== *REQUIRED* Config opencv with travis to prevent 'test fail'
+
+17.    download the .travis.yml, BuildModule.cmake, CmakeList.txt, Sources.cmake and TestModule.cmake from: https://github.com/R2D2-2018/OBJECT_RECOGNITION/tree/feature-image-viewer
+18.    replace exsisting files with these.   
 
 =========================================================================================================
 
