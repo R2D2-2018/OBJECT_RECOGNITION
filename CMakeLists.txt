@@ -6,10 +6,27 @@ set(exe_name "object_recognition")
 enable_testing()
 include(../../flags.cmake)
 
+add_library(OpenCV SHARED IMPORTED)
+set_property(TARGET OpenCV PROPERTY IMPORTED_LOCATION "/usr/local/lib")
+find_package( OpenCV REQUIRED )
+
+include_directories("/home/arsalan/ti-software/opencv/include/opencv2/")
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set(sources
-    src/main.cpp)
+    src/image/sample_image.cpp
+    src/image/root_image.cpp
+    src/object_finding/feature_detector.cpp
+    src/object_finding/feature_descriptor.cpp
+    src/object_finding/feature_comparator.cpp
+    src/object_finding/object_finder.cpp
+    src/window/interface/gui.cpp
+    src/window/interface/cli.cpp
+    src/window/image_viewer.cpp
+    src/window/video_controller.cpp
+    src/main.cpp
+)
 
 add_executable(${exe_name} ${sources})
+target_link_libraries( object_recognition ${OpenCV_LIBS} )

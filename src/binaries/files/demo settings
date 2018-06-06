@@ -1,0 +1,12 @@
+apple:
+Filter 9
+0: 150 0 ZERO_INV
+1: 20, 0 ZERO
+
+banana:
+0: 150 0 ZERO_INV
+1: 55, 0 ZERO
+
+book:
+Filter 9
+no threshold
