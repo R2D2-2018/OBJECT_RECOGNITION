@@ -1,2 +1,3 @@
-build_test
-build
+build/
+build_test/
+.vscode/
