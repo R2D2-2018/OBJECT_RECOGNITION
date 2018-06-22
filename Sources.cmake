@@ -17,5 +17,5 @@ include_directories (${catch}/single_include)
 include_directories (src/)
 
 set (sources
-
+	"src/sample_image.cpp"
 )

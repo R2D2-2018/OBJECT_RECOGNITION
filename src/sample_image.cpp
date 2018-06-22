@@ -21,7 +21,7 @@ SampleImage::SampleImage(const char *path) : path(path) {
 }
 
 ///< Setters
-void SampleImage::set(const char *newPath) {
+void SampleImage::setPath(const char *newPath) {
     path = newPath;
     image = cv::imread(path, -1);
     if (!image.data) {
@@ -29,8 +29,8 @@ void SampleImage::set(const char *newPath) {
         isValid = false;
     }
 }
-void SampleImage::set(SampleImage &other) {
-    if (other.isValid()) {
+void SampleImage::setPath(SampleImage &other) {
+    if (other.getIsValid()) {
         path = other.getPath();
         image = cv::imread(path, -1);
     } else {
@@ -39,12 +39,12 @@ void SampleImage::set(SampleImage &other) {
 }
 
 ///< Getters
-char *SampleImage::getPath() {
+const char *SampleImage::getPath() {
     return path;
 }
-cv::mat getImage() {
+cv::Mat SampleImage::getImage() {
     return image;
 }
-bool SampleImage::isValid() {
+bool SampleImage::getIsValid() {
     return isValid;
 }

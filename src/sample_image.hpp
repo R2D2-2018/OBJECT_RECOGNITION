@@ -8,6 +8,9 @@
 #ifndef SAMPLE_IMAGE_HPP
 #define SAMPLE_IMAGE_HPP
 
+#include "open_cv.hpp"
+#include <iostream>
+
 class SampleImage {
   private:
     const char *path; ///< Path of image.
@@ -33,12 +36,6 @@ class SampleImage {
     /**
      * @brief Sets path of image
      *
-     * Sets the path of the SampleImage image by asking the user for input.
-     */
-    void setPath();
-    /**
-     * @brief Sets path of image
-     *
      * Sets the path of the SampleImage image with a new const char * path. If the newPath is invalid, isValid will become false.
      *
      * @param[in]     const char * newPath    The path of the image
@@ -60,7 +57,7 @@ class SampleImage {
      *
      * @return char * path
      */
-    char *getPath();
+    const char *getPath();
     /**
      * @brief Gets image
      *
@@ -76,7 +73,7 @@ class SampleImage {
      *
      * @return bool isValid
      */
-    bool isValid();
+    bool getIsValid();
 };
 
 #endif // SAMPLE_IMAGE_HPP
