@@ -9,11 +9,9 @@
 #define SAMPLE_IMAGE_HPP
 
 class SampleImage {
-private:
-	
-public:
-	SampleImage();
-	
+  private:
+  public:
+    SampleImage();
 };
 
 #endif // SAMPLE_IMAGE_HPP

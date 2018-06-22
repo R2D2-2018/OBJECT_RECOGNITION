@@ -7,5 +7,5 @@
 
 #include "sample_image.hpp"
 
-SampleImage::SampleImage() {	
+SampleImage::SampleImage() {
 }
