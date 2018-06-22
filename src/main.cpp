@@ -2,7 +2,7 @@
  * @file	  main.cpp
  * @brief     The main function. Currently holds demo code to display an image in a window.
  * @author    Roxanne van der Pol
- * @license   See LICENSE
+ * @license   MIT
  */
 
 #include "open_cv.hpp"
