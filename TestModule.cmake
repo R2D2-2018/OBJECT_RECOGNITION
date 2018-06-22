@@ -66,7 +66,7 @@ endif (test_build)
 if (clang_format_test_enabled)
 add_test (
 	NAME ${clangformat_test}
-	COMMAND python2 ${PROJECT_SOURCE_DIR}/.clang-format-compare.py ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/test
+	COMMAND python ${PROJECT_SOURCE_DIR}/.clang-format-compare.py ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/test
 )
 endif (clang_format_test_enabled)
 
