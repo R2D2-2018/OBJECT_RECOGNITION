@@ -1,7 +1,7 @@
 /**
  * @file	  sample_image.hpp
  * @brief     SampleImage class that contains the sample library to extract features from.
- * @author    Roxanne van der Pol
+ * @author    Roxanne van der Pol, Joost van Lingen
  * @license   MIT
  */
 
@@ -13,9 +13,10 @@
 
 class SampleImage {
   private:
-    const char *path; ///< Path of image.
-    bool isValid;     ///< Whether an image path is valid
-    cv::Mat image;    ///< Image object which has a path
+    const char *path;        ///< Path of image.
+    bool isValid;            ///< Whether an image path is valid
+    cv::VideoCapture stream; ///< In case we're using a camera, the VideoCapture object is stored here
+    cv::Mat image;           ///< Image object which has a path
 
   public:
     /**
@@ -28,6 +29,7 @@ class SampleImage {
      * @brief Overloaded constructor of SampleImage class
      *
      * Creates a SampleImage object; initialises image with a path and will set isValid to true if the path is valid.
+     * Checkes if a path or camera address is given and stores the VideoCapture in case a camera address is given.
      *
      * @param[in]     const char * newPath    The path of the image
      */
@@ -62,6 +64,7 @@ class SampleImage {
      * @brief Gets image
      *
      * Returns the private variable 'image'; a simple getter function.
+     * In case the image is captured from a live camera, the image is updated from the VideoCapture object.
      *
      * @return cv::Mat image
      */
