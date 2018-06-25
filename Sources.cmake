@@ -18,4 +18,5 @@ include_directories (src/)
 
 set (sources
 	"src/sample_image.cpp"
+	"src/image_object.cpp"
 )
