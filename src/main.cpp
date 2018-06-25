@@ -11,7 +11,7 @@
 int main() {
     ///< Specify path of image to be loaded
     char path[] = "default.jpg";
-    std::cout << "Specify image path: \n";
+    std::cout << "Specify image path or camera address: \n";
     std::cin >> path;
 
     ///< Create SampleImage object and place path inside of it
@@ -22,12 +22,16 @@ int main() {
         std::cout << "Could not open or find the image" << std::endl;
         return -1;
     }
-
-    ///< Create window and display image
+    ///< Create window
     cv::namedWindow("Display window", cv::WINDOW_AUTOSIZE);
-    cv::imshow("Display window", sampleImage.getImage());
+    while (true) {
+        ///< Display image
+        cv::imshow("Display window", sampleImage.getImage());
+        ///< Wait for keyboard interrupt
+        if (cv::waitKey(30) >= 0) {
+            break;
+        }
+    }
 
-    ///< Wait for key stroke
-    cv::waitKey(0);
     return 0;
 }
