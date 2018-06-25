@@ -9,10 +9,20 @@
 #include <iostream>
 
 int main() {
-    ///< Specify path of image to be loaded
-    char path[] = "default.jpg";
-    std::cout << "Specify image path: \n";
-    std::cin >> path;
+    char path[150];
+    char answer = 'n';
+
+    std::cout << "Want to specify a custom path? (y/n)\n";
+    std::cin >> answer;
+    if (answer == 'y') {
+        std::cout << "Please specify a path: ";
+        std::cin >> path;
+    } else {
+        char path_[19] = "src/img/sample.jpg";
+        for (int i = 0; i < 19; ++i) {
+            path[i] = path_[i];
+        }
+    }
 
     ///< Create SampleImage object and place path inside of it
     SampleImage sampleImage(path);
