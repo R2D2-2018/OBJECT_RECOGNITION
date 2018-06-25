@@ -29,6 +29,7 @@ class SampleImage {
      * @brief Overloaded constructor of SampleImage class
      *
      * Creates a SampleImage object; initialises image with a path and will set isValid to true if the path is valid.
+     * Checkes if a path or camera address is given and stores the VideoCapture in case a camera address is given.
      *
      * @param[in]     const char * newPath    The path of the image
      */
@@ -63,6 +64,7 @@ class SampleImage {
      * @brief Gets image
      *
      * Returns the private variable 'image'; a simple getter function.
+     * In case the image is captured from a live camera, the image is updated from the VideoCapture object.
      *
      * @return cv::Mat image
      */
